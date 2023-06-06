@@ -15,6 +15,12 @@ wget -O /opt/etc/rublock.ips https://raw.githubusercontent.com/SecOps-Institute/
 wget -O /opt/etc/init.d/S10iptables https://raw.githubusercontent.com/diarworld/instagram-router-filter/main/S10iptables
 ```
 
+```
+wget -O /media/T/openai.ips https://raw.githubusercontent.com/diarworld/instagram-router-filter/main/openai.ips
+for IP in $(cat /media/T/rublock.ips) ; do ipset -A rublock $IP done
+for IP in $(cat /media/T/openai.ips) ; do ipset -A rublock $IP done
+```
+
 Повторно запускать скачивание имеет смысл только для обновления списка заблокированных IP адресов, например, раз в месяц.
 
 
